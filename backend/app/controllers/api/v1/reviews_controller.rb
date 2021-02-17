@@ -5,7 +5,7 @@ class Api::V1::ReviewsController < ApplicationController
         render json: reviews
     end
     
-    #all reviews in json format, don't need instance variables (no erb display)
+    #rendering all reviews in json format, don't need instance variables (no erb display)
 
     def create
         review = Review.new(review_params)
@@ -16,6 +16,8 @@ class Api::V1::ReviewsController < ApplicationController
         end
     end        
 
+    #create new review and render based on what's entered on frontend or display error if attribute is missing based on strong params
+
 
     private
 
@@ -23,7 +25,7 @@ class Api::V1::ReviewsController < ApplicationController
         params.require(:review).permit(:reviewer, :header, :body, :movie_id)
     end
 
-    #permissable attributes, review is top level hash required
+    #requiring permissable attributes, review is top level hash required, requiring these attributes for our fetches
 
 
 

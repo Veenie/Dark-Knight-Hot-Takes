@@ -95,3 +95,12 @@ FOREIGN KEY ("movie_id")
   [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/api/v1/reviews" for ::1 at 2021-02-17 15:15:17 -0800
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ReviewsController#index as HTML
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 312ms (Views: 5.4ms | ActiveRecord: 1.1ms | Allocations: 3568)
+
+
