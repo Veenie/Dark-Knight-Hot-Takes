@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end  
   end
 
+  #We are nesting as namespaced routes, best practice as it makes clear it is API and version number for future expansion
+
 
 
 
