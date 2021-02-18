@@ -10,3 +10,5 @@ Movie.create(title: 'Batman Begins')
 Movie.create(title: 'The Dark Knight')
 Movie.create(title: 'The Dark Knight Rises')
 
+Review.create(reviewer: 'bob the goon', header: 'bad movie', body: 'too dark', movie_id: 1)
+
