@@ -1,5 +1,12 @@
+
+const endpoint = "http://localhost:3000/api/v1/reviews"
+
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("This is really cool!");
+    fetch(endpoint)
+    .then(response => response.json())
+    .then(r => {
+        console.log(r);
+        })
   });
 
 //Dom content loaded explainer  
