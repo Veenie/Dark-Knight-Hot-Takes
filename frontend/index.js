@@ -11,7 +11,14 @@ function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
     .then(r => r.forEach(element => {
-        const p = `<h3>${element.reviewer}</h3>`;
+        const p = `
+        <div data-id=${element.id}>
+        <p>${element.movie.title}</p>
+        <p>${element.reviewer}</p>
+        <p>${element.header}</p>
+        <p>${element.body}</p>
+        </div>
+        `;
         document.querySelector('body').innerHTML += p;
     }))
 }
