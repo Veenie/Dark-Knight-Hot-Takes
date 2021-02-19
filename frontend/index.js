@@ -3,6 +3,10 @@ const endpoint = "http://localhost:3000/api/v1/reviews"
 
 document.addEventListener("DOMContentLoaded", function() {
     getReviews()
+
+    const form  = document.querySelector('#form-container')
+    form.addEventListener("submit", (e) => formHandler(e))
+
   });
 
 //Dom content loaded explainer  
@@ -22,6 +26,13 @@ function getReviews() {
         `;
         document.querySelector('#r-container').innerHTML += p;
     }))
+}
+
+
+
+function formHandler(e){
+    e.preventDefault()
+    console.log(e)
 }
 
 //fetch review data from our endpoint, change data to json
