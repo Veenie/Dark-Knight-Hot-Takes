@@ -5,6 +5,56 @@
   <script defer type="text/javascript" src="index.js"></script>
 </head>
 <body>
+
+<div id="form-container">      
+    
+    <form id="add-review">
+    <h3>Create a Review!</h3>
+    <p>Name:</p>
+    <input
+      id="reviewer-name"
+      type="text"
+      name="name"
+      value=""
+      placeholder="Enter your name..."
+      class="input-text"
+    />
+    <br />
+    <p>Movie:</p>
+    <select id="movies" name="movies">
+        <option value="1">Batman Begins</option>
+        <option value="2">The Dark Knight</option>
+        <option value="3">The Dark Knight Rises</option>
+    </select>
+    <br />
+    <p>Review:</p>
+    <input
+    id="header"
+    type="text"
+    name="head"
+    value=""
+    placeholder="Enter a header..."
+    class="input-text"
+  />
+   <br />
+    <textarea
+      id="body"
+      name="review-body"
+      rows="8"
+      cols="50"
+      value=""
+      placeholder="Write your review..."
+    ></textarea>
+    <br />
+    <input
+      type="submit"
+      name="submit"
+      value="Create New Review"
+      class="submit"
+    />
+  </form></div>
+  <br />
+  <br />
 <div id="r-container"></div>
 
 </body>
