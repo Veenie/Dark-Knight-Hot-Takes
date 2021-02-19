@@ -20,7 +20,7 @@ function getReviews() {
         </div>
         <br><br>
         `;
-        document.querySelector('body').innerHTML += p;
+        document.querySelector('#r-container').innerHTML += p;
     }))
 }
 
