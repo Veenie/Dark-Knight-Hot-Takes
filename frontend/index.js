@@ -18,6 +18,7 @@ function getReviews() {
         <p>${element.header}</p>
         <p>${element.body}</p>
         </div>
+        <br><br>
         `;
         document.querySelector('body').innerHTML += p;
     }))
