@@ -1318,3 +1318,73 @@ Processing by Api::V1::ReviewsController#create as */*
 Completed 200 OK in 627ms (Views: 4.7ms | ActiveRecord: 5.7ms | Allocations: 3794003)
 
 
+Started GET "/api/v1/reviews" for ::1 at 2021-02-20 12:51:35 -0800
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ReviewsController#index as */*
+  [1m[36mReview Load (2.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (4.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (1.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 632ms (Views: 582.9ms | ActiveRecord: 9.7ms | Allocations: 5065773)
+
+
+Started GET "/api/v1/reviews" for ::1 at 2021-02-20 12:51:50 -0800
+Processing by Api::V1::ReviewsController#index as HTML
+  [1m[36mReview Load (1.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (1.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (2.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 291ms (Views: 277.4ms | ActiveRecord: 6.0ms | Allocations: 2760152)
+
+
+Started GET "/api/v1/reviews" for ::1 at 2021-02-20 13:06:29 -0800
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ReviewsController#index as */*
+  [1m[36mReview Load (1.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (1.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (4.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 572ms (Views: 533.1ms | ActiveRecord: 9.4ms | Allocations: 5549572)
+
+
+Started GET "/api/v1/reviews" for ::1 at 2021-02-20 13:07:01 -0800
+Processing by Api::V1::ReviewsController#index as */*
+  [1m[36mReview Load (1.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (1.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 300ms (Views: 287.8ms | ActiveRecord: 5.5ms | Allocations: 2760947)
+
+
