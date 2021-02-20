@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
 function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
-    .then(r => r.forEach(element => {
+    .then(r => r.forEach(review => {
         const p = `
-        <div data-id=${element.id}>
-        <p>${element.movie.title}</p>
-        <p>${element.reviewer}</p>
-        <p>${element.header}</p>
-        <p>${element.body}</p>
+        <div data-id=${review.id}>
+        <p>${review.movie.title}</p>
+        <p>${review.reviewer}</p>
+        <p>${review.header}</p>
+        <p>${review.body}</p>
         </div>
         <br><br>
         `;
