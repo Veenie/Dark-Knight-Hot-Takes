@@ -15,16 +15,18 @@ function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
     .then(r => r.forEach(review => {
-        const p = `
-        <div data-id=${review.id}>
-        <p>Reviewer: <b>${review.reviewer}</b></p>
-        <p>Movie: ${review.movie.title}</p>
-        <h3>${review.header}</h3>
-        <h4>${review.body}</h4>
-        </div>
-        <br><br>
-        `;
-        document.querySelector('#r-container').innerHTML += p;
+      debugger
+      let newReview = new Review(review)
+        // const p = `
+        // <div data-id=${review.id}>
+        // <p>Reviewer: <b>${review.reviewer}</b></p>
+        // <p>Movie: ${review.movie.title}</p>
+        // <h3>${review.header}</h3>
+        // <h4>${review.body}</h4>
+        // </div>
+        // <br><br>
+        // `;
+        // document.querySelector('#r-container').innerHTML += p;
     }))
     .catch(err => console.log(err))
 }
