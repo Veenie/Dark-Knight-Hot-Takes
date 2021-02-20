@@ -9,6 +9,7 @@ class Api::V1::ReviewsController < ApplicationController
 
     def create
         review = Review.new(review_params)
+        #byebug
         if review.save
             render json: review
         else
@@ -17,6 +18,7 @@ class Api::V1::ReviewsController < ApplicationController
     end        
 
     #create new review and render based on what's entered on frontend or display error if attribute is missing based on strong params
+    #using byebug to check the review_params, make sure our data is making it from the front to back
 
 
     private

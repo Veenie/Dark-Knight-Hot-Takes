@@ -32,11 +32,11 @@ function getReviews() {
 
 function formHandler(e){
     e.preventDefault()
-    const name = document.querySelector('#name').value
-    const movie = parseInt(document.querySelector('#movie').value)
+    const reviewer = document.querySelector('#name').value
     const header = document.querySelector('#header').value
     const body = document.querySelector('#body').value
-    postFetch(name, movie, header, body)
+    const movie_id = parseInt(document.querySelector('#movie').value)
+    postFetch(reviewer, header, body, movie_id)
     //debugger
     //console.log(e)
 }
@@ -44,7 +44,16 @@ function formHandler(e){
 //Used debugger and browser console to find and select the form values entered
 //We parseInt to go from string to integer, which is what a movie_id is
 
-function postFetch(name, movie, header, body){
+function postFetch(reviewer, header, body, movie_id){
+  const bodyData =  {reviewer, header, body, movie_id}
+  fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'},
+    body: JSON.stringify(bodyData)
+  })
+    .then(resp => resp.json())
+    .then(review => {console.log(review)})
     
 }
 
