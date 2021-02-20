@@ -26,6 +26,7 @@ function getReviews() {
         `;
         document.querySelector('#r-container').innerHTML += p;
     }))
+    .catch(err => console.log(err))
 }
 
 //fetch review data from our endpoint, change data to json
