@@ -17,10 +17,10 @@ function getReviews() {
     .then(r => r.forEach(review => {
         const p = `
         <div data-id=${review.id}>
-        <p>${review.movie.title}</p>
-        <p>${review.reviewer}</p>
-        <p>${review.header}</p>
-        <p>${review.body}</p>
+        <p>Reviewer: <b>${review.reviewer}</b></p>
+        <p>Movie: ${review.movie.title}</p>
+        <h3>${review.header}</h3>
+        <h4>${review.body}</h4>
         </div>
         <br><br>
         `;
