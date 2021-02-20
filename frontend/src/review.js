@@ -7,8 +7,13 @@ class Review {
       this.movie = review.movie;
       Review.all.push(this);
     }
+
+    //this is an analogue to initialize in ruby
+    //making js objects as counter parts to the ones in the backend, mirroring
+    //this refers to instance being pushed thru at the time
   
     renderReview() {
+    //   debugger  
       return `
         <div data-id=${this.id}>
         <p>Reviewer: <b>${this.reviewer}</b></p>
@@ -21,6 +26,7 @@ class Review {
 
     }
   }
+  //making something akin to a class method, this functions to put our data on the DOM when we run our Review instances thru it
   
   Review.all = [];
 

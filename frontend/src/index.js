@@ -15,8 +15,9 @@ function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
     .then(r => r.forEach(review => {
-      debugger
+      // debugger
       let newReview = new Review(review)
+      document.querySelector('#r-container').innerHTML += newReview.renderReview()
         // const p = `
         // <div data-id=${review.id}>
         // <p>Reviewer: <b>${review.reviewer}</b></p>
@@ -32,6 +33,8 @@ function getReviews() {
 }
 
 //fetch review data from our endpoint, change data to json
+//using forEach to create new instance of Review class for every review in the array from DB (put'em through our constructor!)
+//to update the dom, we target where we want it to show up (querySelector), run the renderReview() located in Review class
 
 function formHandler(e){
     e.preventDefault()
@@ -56,7 +59,13 @@ function postFetch(reviewer, header, body, movie_id){
     body: JSON.stringify(bodyData)
   })
     .then(resp => resp.json())
-    .then(review => {console.log(review)})
+    .then(review => {console.log(review)
+      // debugger
+      let newReview = new Review(review)
+      document.querySelector('#r-container').innerHTML += newReview.renderReview()
+    
+    
+    })
     
 }
 
