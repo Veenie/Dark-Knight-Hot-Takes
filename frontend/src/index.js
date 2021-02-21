@@ -43,6 +43,7 @@ function formHandler(e){
     const body = document.querySelector('#body').value
     const movie_id = parseInt(document.querySelector('#movie').value)
     postFetch(reviewer, header, body, movie_id)
+    
     //debugger
     //console.log(e)
 }
@@ -61,8 +62,9 @@ function postFetch(reviewer, header, body, movie_id){
     .then(resp => resp.json())
     .then(review => {console.log(review)
       // debugger
-      let newReview = new Review(review)
-      document.querySelector('#r-container').innerHTML += newReview.renderReview()
+      // let newerReview = new Review(review)
+      // document.querySelector('#r-container').innerHTML += newerReview.renderReview()
+
     
     
     })
