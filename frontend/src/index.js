@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const form  = document.querySelector('#form-container')
     form.addEventListener("submit", (e) => formHandler(e))
 
+    const reviewContainer = document.querySelector('#r-container')
+    reviewContainer.addEventListener('click', e => {
+    debugger
+    e.preventDefault()  
+
+    console.log(e);
+  });
+
   });
 
 //Dom content loaded explainer  
@@ -53,7 +61,7 @@ function formHandler(e){
 
 function postFetch(reviewer, header, body, movie_id){
   const bodyData =  {reviewer, header, body, movie_id}
-  fetch(endpoint, {
+  return fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'},
@@ -61,16 +69,19 @@ function postFetch(reviewer, header, body, movie_id){
   })
     .then(resp => resp.json())
     
-    .then(review => {console.log(review)
-      debugger
-      let newerReview = new Review(review)
-      document.querySelector('#r-container').innerHTML += newerReview.renderReview()
+    // .then(review => {console.log(review)
+    //   debugger
+    //   let newerReview = new Review(review)
+    //   document.querySelector('#r-container').innerHTML += newerReview.renderReview()
 
     
     
-    })
-    .catch(error => alert(error.message))
+    // })
+    // .catch(error => alert(error.message))
 }
+
+
 
 //console.log("test")
 //To test script tag is connecting the file to index.html
+
