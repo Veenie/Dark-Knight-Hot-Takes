@@ -7,13 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const form  = document.querySelector('#form-container')
     form.addEventListener("submit", (e) => formHandler(e))
 
-    const reviewContainer = document.querySelector('#r-container')
-    reviewContainer.addEventListener('click', e => {
-    debugger
-    e.preventDefault()  
 
-    console.log(e);
-  });
+
 
   });
 
@@ -79,9 +74,24 @@ function postFetch(reviewer, header, body, movie_id){
     // })
     // .catch(error => alert(error.message))
 }
-
+//const reviewContainer = document.querySelector('#r-container')
 
 
 //console.log("test")
 //To test script tag is connecting the file to index.html
 
+  // const buttons = document.getElementsByClassName('button')
+  // function deleter() {
+  // buttons.addEventListener('click', e => {
+  // e.preventDefault()  
+  // console.log(e);
+  // debugger})
+  // }
+
+  // document.getElementById("data-id").addEventListener("click", e => console.log(e));
+
+  const reviewContainer = document.querySelector('#r-container')
+  reviewContainer.addEventListener('button', e => {
+    e.preventDefault()
+    console.log("yo!")
+  })

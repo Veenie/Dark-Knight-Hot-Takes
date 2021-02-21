@@ -20,11 +20,14 @@ class Review {
          <p>Movie: ${this.movie.title}</p>
         <h3>${this.header}</h3>
         <h4>${this.body}</h4>
-        <button data-id=${this.id}>delete</button>
+        <button id="${this.id}" class="button">delete</button>
         </div>
         <br><br>`
+ 
 
     }
+
+    
 
 
     
