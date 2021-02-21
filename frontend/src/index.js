@@ -29,7 +29,7 @@ function getReviews() {
         // `;
         // document.querySelector('#r-container').innerHTML += p;
     }))
-    .catch(err => console.log(err))
+    .catch(error => console.log(error.message));
 }
 
 //fetch review data from our endpoint, change data to json
@@ -60,15 +60,16 @@ function postFetch(reviewer, header, body, movie_id){
     body: JSON.stringify(bodyData)
   })
     .then(resp => resp.json())
+    
     .then(review => {console.log(review)
-      // debugger
-      // let newerReview = new Review(review)
-      // document.querySelector('#r-container').innerHTML += newerReview.renderReview()
+      debugger
+      let newerReview = new Review(review)
+      document.querySelector('#r-container').innerHTML += newerReview.renderReview()
 
     
     
     })
-    
+    .catch(error => alert(error.message))
 }
 
 //console.log("test")

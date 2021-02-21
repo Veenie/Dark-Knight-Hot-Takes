@@ -4,6 +4,7 @@ class Review {
       this.reviewer = review.reviewer;
       this.header = review.header;
       this.body = review.body;
+      this.movie_id = review.movie_id;
       this.movie = review.movie;
       Review.all.push(this);
     }
