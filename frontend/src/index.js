@@ -10,25 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
     //event listener for the submit button on our form
 
     const reviewContainer = document.querySelector('#r-container')
-    reviewContainer.addEventListener('click', e => {
-      e.preventDefault()
-      //console.log(e.target)
-      //console.log(e.target.id)
-      const id = parseInt(e.target.id);
-      //console.log(id)
-      const review = Review.findById(id)
-      console.log(review)
-      deleteReview(review)
-    })
-  //we set event listener for a click on the DOM in the section where reviews are displayed
-  //console logging event's target (e.target) displays the html of what we click on
-  //we are looking for delete button, only it has id, e.target.id gives us it's unique id #
-  //when setting to variable, need to parseInt because it's a string
-  //use our static findById method, run the found obj in deleteReview
+    reviewContainer.addEventListener('click', e => deleteHandler(e))
+    //event listener for delete button
 
   });
 
-//Dom content loaded explainer  
+//Dom content loaded handles what happens when page loads
+//
 
 function getReviews() {
   fetch(endpoint)
@@ -69,6 +57,7 @@ function formHandler(e){
 
 //Used debugger and browser console to find and select the form values entered
 //We parseInt to go from string to integer, which is what a movie_id is
+//once the values are paired to proper Review attributes, run through postFetch
 
 function postFetch(reviewer, header, body, movie_id){
   const bodyData =  {reviewer, header, body, movie_id}
@@ -84,19 +73,35 @@ function postFetch(reviewer, header, body, movie_id){
     //   debugger
     //   let newerReview = new Review(review)
     //   document.querySelector('#r-container').innerHTML += newerReview.renderReview()
-
-    
-    
     // })
     .catch(error => console.log(error.message))
 }
+
+//here we send the form data to the db to create a new review
+//order is important, must line up with schema to properly create the review in db
+
+function deleteHandler(e) {
+  e.preventDefault()
+  //console.log(e.target)
+  //console.log(e.target.id)
+  const id = parseInt(e.target.id);
+  //console.log(id)
+  const review = Review.findById(id)
+  console.log(review)
+  deleteReview(review)
+}
+
+//we set event listener for a click on the DOM in the section where reviews are displayed
+//console logging event's target (e.target) displays the html of what we click on
+//we are looking for delete button, only it has id, e.target.id gives us it's unique id #
+//when setting to variable, need to parseInt because it's a string
+//use our static findById method, run the found obj in deleteReview
 
 function deleteReview(review){
   fetch(`http://localhost:3000/api/v1/reviews/${review.id}`, {
     method: 'DELETE'
 })
 }
-
 
 //console.log("test")
 //To test script tag is connecting the file to index.html
