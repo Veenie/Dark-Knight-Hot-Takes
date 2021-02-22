@@ -1,4 +1,3 @@
-
 const endpoint = "http://localhost:3000/api/v1/reviews"
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 //Dom content loaded handles what happens when page loads
-//
 
 function getReviews() {
   fetch(endpoint)
@@ -102,6 +100,8 @@ function deleteReview(review){
     method: 'DELETE'
 })
 }
+
+//delete fetch that utilizes our delete route
 
 //console.log("test")
 //To test script tag is connecting the file to index.html

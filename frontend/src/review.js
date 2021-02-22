@@ -42,14 +42,5 @@ class Review {
   //due to hoisting, it's fine to create it at the bottom
   //reads Review.all before hitting interior of class
 
-
-
-
-
-
-
-
-
-
 //console.log("linked!")
 //confirming that script tag is working
