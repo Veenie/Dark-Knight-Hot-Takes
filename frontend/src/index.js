@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //function that render our db items on DOM
 
     const form  = document.querySelector('#form-container')
-    form.addEventListener("submit", (e) => formHandler(e))
+    form.addEventListener("submit", e => formHandler(e))
     //event listener for the submit button on our form
 
     const reviewContainer = document.querySelector('#r-container')
@@ -88,7 +88,7 @@ function postFetch(reviewer, header, body, movie_id){
     
     
     // })
-    // .catch(error => console.log(error.message))
+    .catch(error => console.log(error.message))
 }
 
 function deleteReview(review){
