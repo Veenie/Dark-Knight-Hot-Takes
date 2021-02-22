@@ -91,8 +91,11 @@ function postFetch(reviewer, header, body, movie_id){
     // .catch(error => console.log(error.message))
 }
 
+// function deleteReview(review){
+//   fetch(endpoint, {
+//     method: 'Delete'
+// }
+
 
 //console.log("test")
 //To test script tag is connecting the file to index.html
-
-
