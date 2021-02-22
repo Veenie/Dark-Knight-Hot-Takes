@@ -3,9 +3,25 @@ const endpoint = "http://localhost:3000/api/v1/reviews"
 
 document.addEventListener("DOMContentLoaded", function() {
     getReviews()
+    //function that render our db items on DOM
 
     const form  = document.querySelector('#form-container')
     form.addEventListener("submit", (e) => formHandler(e))
+    //event listener for the submit button on our form
+
+    const reviewContainer = document.querySelector('#r-container')
+    reviewContainer.addEventListener('click', e => {
+      e.preventDefault()
+      //console.log(e.target)
+      console.log(e.target.id)
+      const id = parseInt(e.target.id);
+
+    })
+  //we set event listener for a click on the DOM in the section where reviews are displayed
+  //console logging event's target (e.target) displays the html of what we click on
+  //we are looking for delete button, only it has id, e.target.id gives us it's unique id #
+  //when setting to variable, need to parseInt because it's a string
+
 
 
 
@@ -80,10 +96,10 @@ function postFetch(reviewer, header, body, movie_id){
 //console.log("test")
 //To test script tag is connecting the file to index.html
 
-  const buttons = document.getElementsByClassName('button')
-  function deleter() {
-  buttons.forEach(button => console.log(button))
-  debugger
+  // const buttons = document.getElementsByClassName('button')
+  // function deleter() {
+  // buttons.forEach(button => console.log(button))
+  // debugger
   // button.addEventListener('click', e => {
   // e.preventDefault()  
   // console.log(e);
@@ -92,8 +108,4 @@ function postFetch(reviewer, header, body, movie_id){
 
   // document.getElementById("data-id").addEventListener("click", e => console.log(e));
 
-  const reviewContainer = document.querySelector('#r-container')
-  reviewContainer.addEventListener('button', e => {
-    e.preventDefault()
-    console.log("yo!")
-  })
+
