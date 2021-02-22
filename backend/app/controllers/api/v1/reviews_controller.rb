@@ -20,6 +20,11 @@ class Api::V1::ReviewsController < ApplicationController
     #create new review and render based on what's entered on frontend or display error if attribute is missing based on strong params
     #using byebug to check the review_params, make sure our data is making it from the front to back
 
+    def destroy
+        @review = Review.find_by(id: params[:id]).destroy
+        render json: @review
+    end
+
 
     private
 

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
       //console.log(id)
       const review = Review.findById(id)
       console.log(review)
-
+      deleteReview(review)
     })
   //we set event listener for a click on the DOM in the section where reviews are displayed
   //console logging event's target (e.target) displays the html of what we click on
@@ -91,10 +91,11 @@ function postFetch(reviewer, header, body, movie_id){
     // .catch(error => console.log(error.message))
 }
 
-// function deleteReview(review){
-//   fetch(endpoint, {
-//     method: 'Delete'
-// }
+function deleteReview(review){
+  fetch(`http://localhost:3000/api/v1/reviews/${review.id}`, {
+    method: 'DELETE'
+})
+}
 
 
 //console.log("test")
