@@ -26,13 +26,13 @@ class Review {
  
 
     }
-
+ //making something akin to a class method, this functions to put our data on the DOM when we run our Review instances thru it
     
 
 
     
   }
-  //making something akin to a class method, this functions to put our data on the DOM when we run our Review instances thru it
+
   
   Review.all = [];
 

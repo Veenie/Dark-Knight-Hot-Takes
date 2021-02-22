@@ -72,7 +72,7 @@ function postFetch(reviewer, header, body, movie_id){
     
     
     // })
-    // .catch(error => alert(error.message))
+    // .catch(error => console.log(error.message))
 }
 //const reviewContainer = document.querySelector('#r-container')
 
@@ -80,13 +80,15 @@ function postFetch(reviewer, header, body, movie_id){
 //console.log("test")
 //To test script tag is connecting the file to index.html
 
-  // const buttons = document.getElementsByClassName('button')
-  // function deleter() {
-  // buttons.addEventListener('click', e => {
+  const buttons = document.getElementsByClassName('button')
+  function deleter() {
+  buttons.forEach(button => console.log(button))
+  debugger
+  // button.addEventListener('click', e => {
   // e.preventDefault()  
   // console.log(e);
   // debugger})
-  // }
+  }
 
   // document.getElementById("data-id").addEventListener("click", e => console.log(e));
 
