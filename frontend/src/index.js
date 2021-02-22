@@ -13,19 +13,18 @@ document.addEventListener("DOMContentLoaded", function() {
     reviewContainer.addEventListener('click', e => {
       e.preventDefault()
       //console.log(e.target)
-      console.log(e.target.id)
+      //console.log(e.target.id)
       const id = parseInt(e.target.id);
-      console.log(id)
+      //console.log(id)
+      const review = Review.findById(id)
+      console.log(review)
 
     })
   //we set event listener for a click on the DOM in the section where reviews are displayed
   //console logging event's target (e.target) displays the html of what we click on
   //we are looking for delete button, only it has id, e.target.id gives us it's unique id #
   //when setting to variable, need to parseInt because it's a string
-
-
-
-
+  //use our static findById method, run the found obj in deleteReview
 
   });
 
@@ -91,22 +90,9 @@ function postFetch(reviewer, header, body, movie_id){
     // })
     // .catch(error => console.log(error.message))
 }
-//const reviewContainer = document.querySelector('#r-container')
 
 
 //console.log("test")
 //To test script tag is connecting the file to index.html
-
-  // const buttons = document.getElementsByClassName('button')
-  // function deleter() {
-  // buttons.forEach(button => console.log(button))
-  // debugger
-  // button.addEventListener('click', e => {
-  // e.preventDefault()  
-  // console.log(e);
-  // debugger})
-  
-
-  // document.getElementById("data-id").addEventListener("click", e => console.log(e));
 
 

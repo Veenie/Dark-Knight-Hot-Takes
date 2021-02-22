@@ -31,21 +31,16 @@ class Review {
         <button id="${this.id}" class="button">delete</button>
         </div>
         <br><br>`
- 
-
     }
  //this function exists to put our data on the DOM when we run Review instances thru it
-    
 
-
-    
   }
-
-  
+ 
   Review.all = [];
 
   //container for our instances
   //due to hoisting, it's fine to create it at the bottom
+  //reads Review.all before hitting interior of class
 
 
 
