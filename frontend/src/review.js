@@ -11,6 +11,14 @@ class Review {
     //this is an analogue to initialize in ruby
     //making js objects as counter parts to the ones in the backend, mirroring
     //this refers to instance being pushed thru at the time
+
+    static findById(id) {
+        return this.all.find(r => r.id === id);
+      }
+    
+    //static method, similar to class method in ruby
+    //because we push every instance into Review.all, we can serach it!
+    //in this case we search for instance with an id number that matches  
   
     renderReview() {
     //   debugger  
@@ -26,7 +34,7 @@ class Review {
  
 
     }
- //making something akin to a class method, this functions to put our data on the DOM when we run our Review instances thru it
+ //this function exists to put our data on the DOM when we run Review instances thru it
     
 
 
@@ -35,6 +43,9 @@ class Review {
 
   
   Review.all = [];
+
+  //container for our instances
+  //due to hoisting, it's fine to create it at the bottom
 
 
 
