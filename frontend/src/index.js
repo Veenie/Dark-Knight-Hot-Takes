@@ -23,7 +23,7 @@ function getReviews() {
       //debugger
       let newReview = new Review(review, review.attributes)
       document.querySelector('#r-container').innerHTML += newReview.renderReview()
-      debugger
+      //debugger
         // const p = `
         // <div data-id=${review.id}>
         // <p>Reviewer: <b>${review.reviewer}</b></p>
@@ -70,7 +70,8 @@ function postFetch(reviewer, header, body, movie_id){
     
     .then(review => {console.log(review)
       //debugger
-      let newerReview = new Review(review)
+      const reviewData = review.data
+      let newerReview = new Review(reviewData, reviewData.attributes)
       document.querySelector('#r-container').innerHTML += newerReview.renderReview()
     })
     .catch(error => console.log(error.message))
@@ -88,7 +89,7 @@ function deleteHandler(e) {
   //console.log(review)
   deleteReview(review)
   e.target.parentElement.remove()
-  //debugger
+  debugger
 }
 
 //we set event listener for a click on the DOM in the section where reviews are displayed (r-container)
