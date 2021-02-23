@@ -11,6 +11,7 @@ class Review {
     //this is an analogue to initialize in ruby
     //making js objects as counter parts to the ones in the backend, mirroring
     //this refers to instance being pushed thru at the time
+    //attr represents the second argument (need two because of how I am nesting)
 
     static findById(id) {
         return this.all.find(r => r.id === id);
