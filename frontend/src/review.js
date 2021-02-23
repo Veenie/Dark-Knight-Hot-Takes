@@ -4,7 +4,7 @@ class Review {
       this.reviewer = attr.reviewer;
       this.header = attr.header;
       this.body = attr.body;
-      this.movie_id = attr.movie_id;
+      this.movie = attr.movie;
       Review.all.push(this);
     }
 
@@ -28,7 +28,7 @@ class Review {
       return `
         <div data-id=${this.id}>
         <p>Reviewer: <b>${this.reviewer}</b></p>
-         <p>Movie: ${this.movie_id}</p>
+         <p>Movie: ${this.movie.title}</p>
         <h3>${this.header}</h3>
         <h4>${this.body}</h4>
         <button id="${this.id}" class="button">delete</button>
