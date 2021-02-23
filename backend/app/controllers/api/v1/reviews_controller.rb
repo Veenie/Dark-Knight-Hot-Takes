@@ -2,7 +2,7 @@ class Api::V1::ReviewsController < ApplicationController
 
     def index
         reviews = Review.all 
-        render json: reviews, include: [:movie]
+        render json: ReviewSerializer.new(reviews)
     end
     
     #all reviews rendered in json format for fetching, don't need instance variables (no erb display)
@@ -11,7 +11,7 @@ class Api::V1::ReviewsController < ApplicationController
         #binding.pry
         review = Review.new(review_params)       
         if review.save
-            render json: review
+            render json: ReviewSerializer.new(review)
         else
             render json: {errors: review.errors.full_messages}
         end
