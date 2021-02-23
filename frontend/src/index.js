@@ -19,10 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
 function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
-    .then(r => r.forEach(review => {
-      // debugger
-      let newReview = new Review(review)
+    .then(r => r.data.forEach(review => {
+      //debugger
+      let newReview = new Review(review, review.attributes)
       document.querySelector('#r-container').innerHTML += newReview.renderReview()
+      debugger
         // const p = `
         // <div data-id=${review.id}>
         // <p>Reviewer: <b>${review.reviewer}</b></p>

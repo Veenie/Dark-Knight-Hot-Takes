@@ -1,10 +1,10 @@
 class Review {
-    constructor(review) { 
+    constructor(review, attr) { 
       this.id = review.id;
-      this.reviewer = review.reviewer;
-      this.header = review.header;
-      this.body = review.body;
-      this.movie_id = review.movie_id;
+      this.reviewer = attr.reviewer;
+      this.header = attr.header;
+      this.body = attr.body;
+      this.movie_id = attr.movie_id;
       Review.all.push(this);
     }
 
