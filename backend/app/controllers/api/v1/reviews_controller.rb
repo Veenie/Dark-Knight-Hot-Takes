@@ -9,10 +9,8 @@ class Api::V1::ReviewsController < ApplicationController
 
     def create
         #binding.pry
-        review = Review.new(review_params)
-        
+        review = Review.new(review_params)       
         if review.save
-            
             render json: review
         else
             render json: {errors: review.errors.full_messages}

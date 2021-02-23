@@ -8660,3 +8660,13 @@ Processing by Api::V1::ReviewsController#destroy as */*
 Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 8.8ms | Allocations: 4601)
 
 
+Started GET "/api/v1/reviews" for ::1 at 2021-02-22 18:14:06 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ReviewsController#index as HTML
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 0.8ms | Allocations: 10336)
+
+
