@@ -21,7 +21,7 @@ class Review {
     //in this case we search for instance with an id number that matches  
   
     renderReview() {
-    debugger 
+    //   debugger 
     //if (this.movie.title == nil) {
         //const movie = Movie.findById(this.movie_id)
     //}
