@@ -50,7 +50,7 @@ function formHandler(e){
     postFetch(reviewer, header, body, movie_id)
     
     //debugger
-    //console.log(e)
+    console.log(e)
 }
 
 //Used debugger and browser console to find and select the form values entered
@@ -68,7 +68,7 @@ function postFetch(reviewer, header, body, movie_id){
     .then(resp => resp.json())
     
     .then(review => {console.log(review)
-      debugger
+      //debugger
       let newerReview = new Review(review)
       document.querySelector('#r-container').innerHTML += newerReview.renderReview()
     })
@@ -87,6 +87,8 @@ function deleteHandler(e) {
   const review = Review.findById(id)
   console.log(review)
   deleteReview(review)
+  e.target.parentElement.remove()
+  //debugger
 }
 
 //we set event listener for a click on the DOM in the section where reviews are displayed
