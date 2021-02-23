@@ -75,8 +75,8 @@ function postFetch(reviewer, header, body, movie_id){
     .catch(error => console.log(error.message))
 }
 
-//here we send the form data to the db to create a new review
-//order is important, must line up with schema to properly create the review in db
+//here we send the form data to the db to create a new review instance
+//order is important, must line up with schema to properly create the review in db!!!
 
 function deleteHandler(e) {
   e.preventDefault()

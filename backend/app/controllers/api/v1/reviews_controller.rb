@@ -20,12 +20,15 @@ class Api::V1::ReviewsController < ApplicationController
     end
 
     #create new review and render based on what's entered on frontend or display error if attribute is missing based on strong params
-    #using byebug to check the review_params, make sure our data is making it from the front to back
+    #using byebug/pry to check the review_params, make sure our data is making it from the front to back
 
     def destroy
         @review = Review.find_by(id: params[:id]).destroy
         render json: @review
     end
+
+    #now we have an endpoint for deleting reviews 
+    #will find and delete review based on the id number in the url sent!
 
 
     private
@@ -34,7 +37,7 @@ class Api::V1::ReviewsController < ApplicationController
         params.require(:review).permit(:reviewer, :header, :body, :movie_id)
     end
 
-    #review is top level hash required, requiring these attributes to be present
+    #review is top level hash required, requiring these attributes to be present for new instances
 
 
 
