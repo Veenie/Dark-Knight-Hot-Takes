@@ -80,22 +80,22 @@ function postFetch(reviewer, header, body, movie_id){
 
 function deleteHandler(e) {
   e.preventDefault()
-  //console.log(e.target)
   //console.log(e.target.id)
   const id = parseInt(e.target.id);
   //console.log(id)
   const review = Review.findById(id)
-  console.log(review)
+  //console.log(review)
   deleteReview(review)
   e.target.parentElement.remove()
   //debugger
 }
 
-//we set event listener for a click on the DOM in the section where reviews are displayed
+//we set event listener for a click on the DOM in the section where reviews are displayed (r-container)
 //console logging event's target (e.target) displays the html of what we click on
 //we are looking for delete button, only it has id, e.target.id gives us it's unique id #
 //when setting to variable, need to parseInt because it's a string
 //use our static findById method, run the found obj in deleteReview
+//finally, remove from dom with parentElement.remove()
 
 function deleteReview(review){
   fetch(`http://localhost:3000/api/v1/reviews/${review.id}`, {
