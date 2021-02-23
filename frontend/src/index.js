@@ -5,13 +5,15 @@ document.addEventListener("DOMContentLoaded", function() {
     //function that render our db items on DOM
 
     const form  = document.querySelector('#form-container')
-    form.addEventListener("submit", e => formHandler(e))
+    form.addEventListener("submit", e => {
+      formHandler(e)
+      form.reset()
+    })
     //event listener for the submit button on our form
-
+    
     const reviewContainer = document.querySelector('#r-container')
     reviewContainer.addEventListener('click', e => deleteHandler(e))
     //event listener for delete button
-
   });
 
 //Dom content loaded handles what happens when page loads
@@ -49,7 +51,7 @@ function formHandler(e){
     const body = document.querySelector('#body').value
     const movie_id = parseInt(document.querySelector('#movie').value)
     postFetch(reviewer, header, body, movie_id)
-    
+    e.reset()
     //debugger
     console.log(e)
 }
