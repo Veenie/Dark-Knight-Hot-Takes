@@ -8,9 +8,11 @@ class Api::V1::ReviewsController < ApplicationController
     #all reviews rendered in json format for fetching, don't need instance variables (no erb display)
 
     def create
+        #binding.pry
         review = Review.new(review_params)
-        #byebug
+        
         if review.save
+            
             render json: review
         else
             render json: {errors: review.errors.full_messages}

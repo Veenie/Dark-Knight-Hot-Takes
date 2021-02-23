@@ -4,7 +4,7 @@ class Review {
       this.reviewer = review.reviewer;
       this.header = review.header;
       this.body = review.body;
-      this.movie = review.movie;
+      this.movie_id = review.movie_id;
       Review.all.push(this);
     }
 
@@ -21,11 +21,14 @@ class Review {
     //in this case we search for instance with an id number that matches  
   
     renderReview() {
-    //   debugger  
+    //   debugger 
+    //if (this.movie.title == nil) {
+        //const movie = Movie.findById(this.movie_id)
+    //}
       return `
         <div data-id=${this.id}>
         <p>Reviewer: <b>${this.reviewer}</b></p>
-         <p>Movie: ${this.movie.title}</p>
+         <p>Movie: ${this.movie_id}</p>
         <h3>${this.header}</h3>
         <h4>${this.body}</h4>
         <button id="${this.id}" class="button">delete</button>

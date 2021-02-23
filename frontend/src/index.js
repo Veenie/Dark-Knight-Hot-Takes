@@ -67,11 +67,11 @@ function postFetch(reviewer, header, body, movie_id){
   })
     .then(resp => resp.json())
     
-    // .then(review => {console.log(review)
-    //   debugger
-    //   let newerReview = new Review(review)
-    //   document.querySelector('#r-container').innerHTML += newerReview.renderReview()
-    // })
+    .then(review => {console.log(review)
+      debugger
+      let newerReview = new Review(review)
+      document.querySelector('#r-container').innerHTML += newerReview.renderReview()
+    })
     .catch(error => console.log(error.message))
 }
 
