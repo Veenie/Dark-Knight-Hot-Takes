@@ -92,8 +92,9 @@ function deleteHandler(e) {
   const id = e.target.id;
   //console.log(id)
   const review = Review.findById(id)
-  console.log(review)
+  //console.log(review)
   deleteReview(review)
+  //console.log(e.target.parentElement)
   e.target.parentElement.remove()
   //debugger
 }
