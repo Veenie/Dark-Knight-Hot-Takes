@@ -78,8 +78,12 @@ function postFetch(reviewer, header, body, movie_id){
     .catch(error => console.log(error.message))
 }
 
-//here we send the form data to the db to create a new review instance
+//here we send the form data to the db to create a new review
+//http verb is post, change data to json
 //order is important, must line up with schema to properly create the review in db!!!
+//also create a corresponding js object for front end usage (new Review)
+//this way, every time form is submitted, db and frontend line up w/ counterparts
+//we then use new js object to display new review on DOM so user can see it
 
 function deleteHandler(e) {
   e.preventDefault()
