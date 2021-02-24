@@ -35,7 +35,7 @@ class Api::V1::ReviewsController < ApplicationController
         params.require(:review).permit(:reviewer, :header, :body, :movie_id)
     end
 
-    #review is top level hash required, requiring these attributes to be present for new instances
+    #review is top level hash required, followed by attributes to be present for new instances
 
 
 
