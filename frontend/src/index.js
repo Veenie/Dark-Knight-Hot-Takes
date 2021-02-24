@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const form  = document.querySelector('#form-container')
     form.addEventListener("submit", e => {
       formHandler(e)
-      form.reset()
     })
     //event listener for the submit button on our form
 
@@ -46,18 +45,18 @@ function getReviews() {
 
 function formHandler(e){
     e.preventDefault()
-    const reviewer = document.querySelector('#name').value
-    const header = document.querySelector('#header').value
-    const body = document.querySelector('#body').value
-    const movie_id = parseInt(document.querySelector('#movie').value)
+    console.log(e.target.movie.value)
+    const reviewer = e.target.name.value
+    const header = e.target.header.value
+    const body = e.target.body.value
+    const movie_id = parseInt(e.target.movie.value)
     postFetch(reviewer, header, body, movie_id)
-    //e.reset()
+    e.target.reset()
     //debugger
-    console.log(e)
 }
 
 //Used debugger and browser console to find and select the form values entered
-//We parseInt to go from string to integer, which is what a movie_id is
+//We parseInt to go from string to integer, which is what a movie_id is in schema
 //once the values are paired to proper Review attributes, run through postFetch
 
 function postFetch(reviewer, header, body, movie_id){
