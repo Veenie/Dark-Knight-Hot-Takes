@@ -10675,3 +10675,53 @@ Processing by Api::V1::ReviewsController#index as */*
 Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 1.8ms | Allocations: 9111)
 
 
+Started GET "/api/v1/reviews" for ::1 at 2021-02-24 15:00:43 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ReviewsController#index as */*
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 34ms (Views: 30.6ms | ActiveRecord: 2.6ms | Allocations: 9146)
+
+
+Started DELETE "/api/v1/reviews/8" for ::1 at 2021-02-24 15:01:22 -0800
+Processing by Api::V1::ReviewsController#destroy as */*
+  Parameters: {"id"=>"8"}
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:24:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:24:in `destroy'
+  [1m[36mReview Destroy (4.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:24:in `destroy'
+  [1m[35m (16.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:24:in `destroy'
+Completed 200 OK in 33ms (Views: 0.4ms | ActiveRecord: 21.1ms | Allocations: 4255)
+
+
+Started POST "/api/v1/reviews" for ::1 at 2021-02-24 15:01:45 -0800
+Processing by Api::V1::ReviewsController#create as */*
+  Parameters: {"reviewer"=>"Jessie", "header"=>"i like it", "body"=>"ccc", "movie_id"=>1, "review"=>{"reviewer"=>"Jessie", "header"=>"i like it", "body"=>"ccc", "movie_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:13:in `create'
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:13:in `create'
+  [1m[36mReview Create (12.0ms)[0m  [1m[32mINSERT INTO "reviews" ("reviewer", "header", "body", "movie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["reviewer", "Jessie"], ["header", "i like it"], ["body", "ccc"], ["movie_id", 1], ["created_at", "2021-02-24 23:01:45.387494"], ["updated_at", "2021-02-24 23:01:45.387494"]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:13:in `create'
+  [1m[35m (44.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:13:in `create'
+Completed 200 OK in 77ms (Views: 0.8ms | ActiveRecord: 57.1ms | Allocations: 5934)
+
+
