@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
       form.reset()
     })
     //event listener for the submit button on our form
-    
+
     const reviewContainer = document.querySelector('#r-container')
     reviewContainer.addEventListener('click', e => deleteHandler(e))
     //event listener for delete button
@@ -51,7 +51,7 @@ function formHandler(e){
     const body = document.querySelector('#body').value
     const movie_id = parseInt(document.querySelector('#movie').value)
     postFetch(reviewer, header, body, movie_id)
-    e.reset()
+    //e.reset()
     //debugger
     console.log(e)
 }
