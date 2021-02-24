@@ -87,7 +87,6 @@ function postFetch(reviewer, header, body, movie_id){
 
 function deleteHandler(e) {
   e.preventDefault()
-  //debugger
   //console.log(e.target)
   const id = e.target.id;
   //console.log(id)

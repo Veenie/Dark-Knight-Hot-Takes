@@ -23,9 +23,6 @@ class Review {
   
     renderReview() {
     //   debugger 
-    //if (this.movie.title == nil) {
-        //const movie = Movie.findById(this.movie_id)
-    //}
       return `
         <div data-id=${this.id}>
         <p>Reviewer: <b>${this.reviewer}</b></p>
