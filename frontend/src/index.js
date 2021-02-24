@@ -45,7 +45,7 @@ function getReviews() {
 
 function formHandler(e){
     e.preventDefault()
-    console.log(e.target.movie.value)
+    //console.log(e.target.movie.value)
     const reviewer = e.target.name.value
     const header = e.target.header.value
     const body = e.target.body.value
@@ -54,7 +54,7 @@ function formHandler(e){
     e.target.reset()
     //debugger
 }
-
+//for our submit listener
 //Used debugger and browser console to find and select the form values entered
 //We parseInt to go from string to integer, which is what a movie_id is in schema
 //once the values are paired to proper Review attributes, run through postFetch
@@ -101,8 +101,8 @@ function deleteHandler(e) {
 
 //we set event listener for a click on the DOM in the section where reviews are displayed (r-container)
 //console logging event's target (e.target) displays the html of what we click on
-//we are looking for delete button, only it has id, e.target.id gives us it's unique id #
-//use our static findById method, run the found obj in deleteReview
+//we are looking for delete button, only it has id, e.target.id gives us it's unique id # upon click
+//use our static findById method, run the found review in deleteReview
 //finally, remove from dom with parentElement.remove()
 
 function deleteReview(review){
