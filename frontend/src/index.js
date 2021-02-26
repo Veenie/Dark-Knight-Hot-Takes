@@ -43,7 +43,9 @@ function getReviews() {
 //fetch gets http response, to extract the json data, we use json() method
 //then() takes as its argument a function that receives the response as its argument
 //using forEach iteration to create new instance of Review class for every review in the array from DB (put'em through our constructor!)
+//we are iterating, so newReview variable is declared with let, different one is created as we loop
 //to update the dom, we target where we want it to show up (querySelector), run the renderReview() located in Review class
+//catch is there for promises that are rejected, will let us know if communication with endpoint has issues
 
 function formHandler(e){
     e.preventDefault()
