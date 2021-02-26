@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const form  = document.querySelector('#form-container')
     form.addEventListener('submit', e => {
       formHandler(e)
-    })
+    });
     //event listener for the submit button on our form
 
     const reviewContainer = document.querySelector('#r-container')
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
-    .then(r => r.data.forEach(review => {
+    .then(reviews => reviews.data.forEach(review => {
       //debugger
       let newReview = new Review(review, review.attributes)
       document.querySelector('#r-container').innerHTML += newReview.renderReview()
@@ -38,9 +38,11 @@ function getReviews() {
     }))
     .catch(error => console.log(error.message));
 }
-
-//fetch review data from our endpoint, change data to json
-//using forEach to create new instance of Review class for every review in the array from DB (put'em through our constructor!)
+//we want to get review data from our endpoint to display when user first sees page
+//fetch takes resource path as an argument, returns promise with response object
+//fetch gets http response, to extract the json data, we use json() method
+//then() takes as its argument a function that receives the response as its argument
+//using forEach iteration to create new instance of Review class for every review in the array from DB (put'em through our constructor!)
 //to update the dom, we target where we want it to show up (querySelector), run the renderReview() located in Review class
 
 function formHandler(e){
@@ -54,7 +56,7 @@ function formHandler(e){
     e.target.reset()
     //debugger
 }
-//for our submit listener
+//for our submit listener, we want the user's entries to be paired to attributes and posted to db
 //Used debugger and browser console to find and select the form values entered
 //We parseInt to go from string to integer, which is what a movie_id is in schema
 //once the values are paired to proper Review attributes, run through postFetch
