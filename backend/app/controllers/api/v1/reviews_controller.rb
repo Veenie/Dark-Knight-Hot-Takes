@@ -6,6 +6,8 @@ class Api::V1::ReviewsController < ApplicationController
     end
     
     #all reviews rendered in json format for fetching, don't need instance variables (no erb display)
+    #reviews variable is all instances of Review class
+    #then we use them as variable for our fast json serializer, will further determine how data is displayed as endpoint
 
     def create
         #binding.pry
@@ -17,7 +19,7 @@ class Api::V1::ReviewsController < ApplicationController
         end
     end
 
-    #create new review and render based on what's entered on frontend or display error if attribute is missing based on strong params
+    #create new instance of Review class and render based on what's entered on frontend or display error if attribute is missing based on strong params
     #using byebug/pry to check the review_params, make sure our data is making it from the front to back
 
     def destroy
@@ -25,7 +27,7 @@ class Api::V1::ReviewsController < ApplicationController
         render json: @review
     end
 
-    #now we have an endpoint for deleting reviews 
+    #now we have an endpoint for deleting reviews utilizing the id number in the url routing
     #will find and delete review based on the id number in the url sent!
 
 
@@ -35,7 +37,7 @@ class Api::V1::ReviewsController < ApplicationController
         params.require(:review).permit(:reviewer, :header, :body, :movie_id)
     end
 
-    #review is top level hash required, followed by attributes to be present for new instances
+    #review is top level hash required, followed by attributes to be present in new instances
 
 
 
