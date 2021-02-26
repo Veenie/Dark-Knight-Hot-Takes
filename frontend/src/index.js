@@ -41,6 +41,7 @@ function getReviews() {
 //we want to get review data from our endpoint to display when user first sees page
 //fetch takes resource path as an argument, returns promise with response object
 //fetch gets http response, to extract the json data, we use json() method
+//json is javascript object notation, a handy way to get data!
 //then() takes as its argument a function that receives the response as its argument
 //using forEach iteration to create new instance of Review class for every review in the array from DB (put'em through our constructor!)
 //we are iterating, so newReview variable is declared with let, different one is created as we loop
