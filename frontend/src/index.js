@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     //function that render our db items on DOM
 
     const form  = document.querySelector('#form-container')
-    form.addEventListener('submit', e => {
-      formHandler(e)
-    });
+    form.addEventListener('submit', e => formHandler(e)
+    );
     //event listener for the submit button on our form
 
     const reviewContainer = document.querySelector('#r-container')
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //event listener for delete button
   });
 
-//Dom content loaded handles what happens when page loads
+//DOMContentLoaded event listening ensures that our JavaScript code is being executed after html loads (can't manipulate what's not there!)
 
 function getReviews() {
   fetch(endpoint)

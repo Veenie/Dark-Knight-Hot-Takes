@@ -11681,3 +11681,29 @@ Processing by Api::V1::ReviewsController#create as */*
 Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 4224)
 
 
+Started GET "/api/v1/reviews" for ::1 at 2021-02-26 17:04:40 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ReviewsController#index as */*
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:5:in `index'
+Completed 200 OK in 31ms (Views: 23.3ms | ActiveRecord: 1.2ms | Allocations: 11759)
+
+
+Started POST "/api/v1/reviews" for ::1 at 2021-02-26 17:04:49 -0800
+Processing by Api::V1::ReviewsController#create as */*
+  Parameters: {"reviewer"=>"Jessie", "header"=>"cool", "body"=>"dude", "movie_id"=>1, "review"=>{"reviewer"=>"Jessie", "header"=>"cool", "body"=>"dude", "movie_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:15:in `create'
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:15:in `create'
+  [1m[36mReview Create (30.4ms)[0m  [1m[32mINSERT INTO "reviews" ("reviewer", "header", "body", "movie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["reviewer", "Jessie"], ["header", "cool"], ["body", "dude"], ["movie_id", 1], ["created_at", "2021-02-27 01:04:49.235181"], ["updated_at", "2021-02-27 01:04:49.235181"]]
+  ↳ app/controllers/api/v1/reviews_controller.rb:15:in `create'
+  [1m[35m (168.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:15:in `create'
+Completed 200 OK in 217ms (Views: 1.1ms | ActiveRecord: 199.8ms | Allocations: 5727)
+
+
