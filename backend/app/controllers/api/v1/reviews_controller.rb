@@ -21,7 +21,7 @@ class Api::V1::ReviewsController < ApplicationController
 
     #create new instance of Review class and render based on what's entered on frontend or display error if attribute is missing based on strong params
     #using byebug/pry to check the review_params, make sure our data is making it from the front to back
-    #if our review is not created/saved, then we create a error message that can be called on as .errors (line 77, index.js)
+    #if our review is not created/saved, then we create a error message that can be called on as .errors (postFetch in index.js)
 
     def destroy
         @review = Review.find_by(id: params[:id]).destroy
