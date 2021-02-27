@@ -73,7 +73,8 @@ function postFetch(reviewer, header, body, movie_id){
   })
     .then(resp => resp.json())
     
-    .then(review => {if(review.errors){alert(review.errors)}
+    .then(review => {
+      if(review.errors){alert(review.errors)}
       //debugger
       const reviewData = review.data
       let newerReview = new Review(reviewData, reviewData.attributes)
