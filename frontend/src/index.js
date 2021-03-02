@@ -72,8 +72,8 @@ function postFetch(reviewer, header, body, movie_id){
 }
 
 //here we send the form data to the db to create a new review
+//bodyData variable will hold entry data for assignment to corresponding 'review' values
 //http verb is post, change data to json
-//order is important, must line up with schema to properly create the review in db!!!
 //also create a corresponding js object for front end usage (new Review)
 //this way, every time form is submitted, db and frontend line up w/ counterparts
 //we then use new js object to display new review on DOM so user can see it
