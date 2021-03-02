@@ -29,7 +29,7 @@ function getReviews() {
     .catch(error => console.log(error.message));
 }
 
-//we want to get review data from our endpoint to display when user first sees page
+//we want to get reviews from our endpoint to display when user first sees page
 //fetch takes resource path as an argument, returns promise with response object
 //fetch gets http response, to extract the json data, we use json() method
 //json is javascript object notation, a handy way to get data!
@@ -109,7 +109,6 @@ function deleteReview(review){
     method: 'DELETE'
 })
 }
-
 //delete fetch that utilizes our delete route
 
 //console.log("test")
