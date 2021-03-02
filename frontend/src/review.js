@@ -34,9 +34,9 @@ class Review {
         </div>
         <br><br>`
     }
- //this function exists to put our data on the DOM in GET and POST (we run Review instances thru it)
-
   }
+
+  //this function exists to put our data on the DOM in GET and POST (we run Review instances thru it)
  
   Review.all = [];
 

@@ -1,5 +1,7 @@
 const endpoint = "http://localhost:3000/api/v1/reviews"
 
+//endpoint url where our data is, global variable
+
 document.addEventListener("DOMContentLoaded", function() {
     getReviews()
     //function that render our db items on DOM
@@ -26,6 +28,7 @@ function getReviews() {
     }))
     .catch(error => console.log(error.message));
 }
+
 //we want to get review data from our endpoint to display when user first sees page
 //fetch takes resource path as an argument, returns promise with response object
 //fetch gets http response, to extract the json data, we use json() method
@@ -46,6 +49,7 @@ function formHandler(e){
     e.target.reset()
     //debugger
 }
+
 //for our submit listener, we want the user's entries to be paired to attributes and posted to db
 //Used debugger and browser console to find and select the form values entered
 //We parseInt to go from string to integer, which is what a movie_id is in schema
@@ -68,7 +72,6 @@ function postFetch(reviewer, header, body, movie_id){
 //bodyData variable will hold entry data
 //http verb is post, change data to json
 
-
 function returnPost(review){
     if(review.errors){alert(review.errors)}
     //debugger
@@ -80,7 +83,6 @@ function returnPost(review){
 //create a corresponding js object for front end usage after post (new Review)
 //this way, every time form is submitted, db and frontend line up w/ counterparts
 //we then use new js object to display new review on DOM so user can see it (send it to renderReview)
-
 
 function deleteHandler(e) {
   e.preventDefault()
