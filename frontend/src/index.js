@@ -23,16 +23,6 @@ function getReviews() {
       const newReview = new Review(review, review.attributes)
       document.querySelector('#r-container').innerHTML += newReview.renderReview()
       //debugger
-        // const p = `
-        // <div data-id=${review.id}>
-        // <p>Reviewer: <b>${review.reviewer}</b></p>
-        // <p>Movie: ${review.movie.title}</p>
-        // <h3>${review.header}</h3>
-        // <h4>${review.body}</h4>
-        // </div>
-        // <br><br>
-        // `;
-        // document.querySelector('#r-container').innerHTML += p;
     }))
     .catch(error => console.log(error.message));
 }

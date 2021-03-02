@@ -8,9 +8,9 @@ class Review {
       Review.all.push(this);
     }
 
-    //this is an analogue to initialize in ruby
+    //constructor is an analogue to initialize in ruby
     //making js objects as counter parts to the ones in the backend, mirroring
-    //this refers to instance being pushed thru at the time
+    //'this' refers to instance being pushed thru at the time, akin to 'self'
     //attr represents the second argument (need two because fast json)
     //use push array method to place into our empty array collecting all instances of class
 
@@ -19,7 +19,7 @@ class Review {
       }
     
     //static method, similar to class method in ruby
-    //because we push every instance into Review.all, we can serach it!
+    //because we push every instance into Review.all, we can search it!
     //in this case we search for instance with an id number that matches  
   
     renderReview() {
