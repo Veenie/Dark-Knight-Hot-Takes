@@ -12,6 +12,7 @@ class Review {
     //making js objects as counter parts to the ones in the backend, mirroring
     //this refers to instance being pushed thru at the time
     //attr represents the second argument (need two because fast json)
+    //use push array method to place into our empty array collecting all instances of class
 
     static findById(id) {
         return this.all.find(r => r.id === id);
@@ -26,22 +27,20 @@ class Review {
       return `
         <div data-id=${this.id}>
         <p>Reviewer: <b>${this.reviewer}</b></p>
-         <p>Movie: ${this.movie.title}</p>
+        <p>Movie: <b>${this.movie.title}</b></p>
         <h3>${this.header}</h3>
         <h4>${this.body}</h4>
         <button id="${this.id}" class="button">delete</button>
         </div>
         <br><br>`
     }
- //this function exists to put our data on the DOM when we run Review instances thru it
+ //this function exists to put our data on the DOM in GET and POST (we run Review instances thru it)
 
   }
  
   Review.all = [];
 
   //container for our instances
-  //due to hoisting, it's fine to create it at the bottom
-  //reads Review.all before hitting interior of class
 
 //console.log("linked!")
 //confirming that script tag is working
