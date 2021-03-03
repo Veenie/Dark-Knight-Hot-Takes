@@ -1,6 +1,6 @@
 const endpoint = "http://localhost:3000/api/v1/reviews"
 
-//endpoint url where our data is, global variable
+//endpoint url where our data is
 
 document.addEventListener("DOMContentLoaded", function() {
     getReviews()
@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const form  = document.querySelector('#form-container')
     form.addEventListener('submit', e => formHandler(e))
-    //event listener for the submit button on our form
+    //event listener for the submit button on our form, formhandler callback function
 
     const reviewContainer = document.querySelector('#r-container')
     reviewContainer.addEventListener('click', e => deleteHandler(e))
-    //event listener for delete button
+    //event listener for delete button, deletehandler callback
   });
 
 //DOMContentLoaded event listening ensures that our JavaScript code is being executed after html loads (can't manipulate what's not there!)
@@ -30,11 +30,11 @@ function getReviews() {
 }
 
 //we want to get reviews from our endpoint to display when user first sees page
-//fetch takes resource path as an argument, returns promise with response object
-//fetch gets http response, to extract the json data, we use json() method
+//fetch takes resource path as an argument, resolves promise to response object
+//fetch gets http response, json() method returns promise, resolves parsing body text as json
 //json is javascript object notation, a handy way to get data!
-//then() takes as its argument a function that receives the response as its argument
-//using forEach iteration to create new instance of Review class for every review in the array from DB (put'em through our constructor!)
+//then() takes as its argument a function that receives the response as its argument (calculator-like)
+//using forEach iteration to create js counterpart of every review from DB (put'em through our constructor!)
 //to update the dom, we target where we want it to show up (querySelector), run the renderReview() located in Review class
 //catch is there for promises that are rejected, will let us know if communication with endpoint has issues
 
@@ -50,10 +50,12 @@ function formHandler(e){
     //debugger
 }
 
+//prevent default behavior of re-route on form submit
 //for our submit listener, we want the user's entries to be paired to attributes and posted to db
 //Used debugger and browser console to find and select the form values entered
 //We parseInt to go from string to integer, which is what a movie_id is in schema
-//once the values are paired to proper Review attributes, run through postFetch
+//once the values are set as variables representing our attributes, run through postFetch
+//reset form to be blank after submit
 
 function postFetch(reviewer, header, body, movie_id){
   const bodyData =  {reviewer, header, body, movie_id}
@@ -69,8 +71,11 @@ function postFetch(reviewer, header, body, movie_id){
 }
 
 //here we send the form data to the db to create a new review
-//bodyData variable will hold entry data
-//http verb is post, change data to json
+//bodyData will hold entry data variables
+//fetch takes two arguments: url we are sending to, object
+//POST http verb lets it know we do not seek to GET data, we are sending
+//body is content we want to send, JSON.stringify converts object to JSON string
+//response will be what we just created, run thru returnPost method
 
 function returnPost(review){
     if(review.errors){alert(review.errors)}
