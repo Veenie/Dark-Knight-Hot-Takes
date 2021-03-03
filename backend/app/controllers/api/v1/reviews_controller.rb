@@ -24,8 +24,8 @@ class Api::V1::ReviewsController < ApplicationController
     #if our review is not created/saved, then we create a error message that can be called on as .errors (returnPost in index.js)
 
     def destroy
-        @review = Review.find_by(id: params[:id]).destroy
-        render json: @review
+        review = Review.find_by(id: params[:id]).destroy
+        render json: review
     end
 
     #now we have an endpoint for deleting reviews utilizing the id number in the url routing
@@ -38,7 +38,7 @@ class Api::V1::ReviewsController < ApplicationController
         params.require(:review).permit(:reviewer, :header, :body, :movie_id)
     end
 
-    #review is top level hash required, followed by permissable attributes to be present in new instances
+    #review is top level hash required, followed by permissable attributes from form data
 
 
 
