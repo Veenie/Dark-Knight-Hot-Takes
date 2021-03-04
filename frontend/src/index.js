@@ -71,7 +71,7 @@ function postFetch(reviewer, header, body, movie_id){
 }
 
 //here we send the form data to the db to create a new review
-//bodyData will hold entry data variables
+//bodyData object will hold entry data variables, named the same as attributes, js will match them
 //fetch takes two arguments: url we are sending to, object
 //POST http verb lets it know we do not seek to GET data, we are sending
 //body is content we want to send, JSON.stringify converts object to JSON string
