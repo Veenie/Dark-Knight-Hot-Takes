@@ -20,7 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
 function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
-    .then(reviews => reviews.data.forEach(review => {
+    .then(reviews => reviews.data.sort(function(a, b){
+      //console.log(a)
+      if(a.attributes.movie_id < b.attributes.movie_id) {return -1}
+      if(a.attributes.movie_id > b.attributes.movie_id) {return 1} 
+      return 0}))
+      // .then(reviews => console.log(reviews))
+    .then(reviews => reviews.forEach(review => {
       //debugger
       const newReview = new Review(review, review.attributes)
       document.querySelector('#r-container').innerHTML += newReview.renderReview()
@@ -66,7 +72,13 @@ function postFetch(reviewer, header, body, movie_id){
     body: JSON.stringify(bodyData)
   })
     .then(resp => resp.json())
-    .then(review => returnPost(review))
+    .then(review => {
+      if(review.errors){alert(review.errors)}
+      //debugger
+      const reviewData = review.data
+      let newerReview = new Review(reviewData, reviewData.attributes)
+      document.querySelector('#r-container').innerHTML += newerReview.renderReview()
+    })
     .catch(error => console.log(error.message))
 }
 
@@ -76,15 +88,6 @@ function postFetch(reviewer, header, body, movie_id){
 //POST http verb lets it know we do not seek to GET data, we are sending
 //body is content we want to send, JSON.stringify converts object to JSON string
 //response will be what we just created, run thru returnPost method
-
-function returnPost(review){
-    if(review.errors){alert(review.errors)}
-    //debugger
-    const reviewData = review.data
-    let newerReview = new Review(reviewData, reviewData.attributes)
-    document.querySelector('#r-container').innerHTML += newerReview.renderReview()
-}
-
 //create a corresponding js object for front end usage after post (new Review)
 //this way, every time form is submitted, db and frontend line up w/ counterparts
 //we then use new js object to display new review on DOM so user can see it (send it to renderReview)

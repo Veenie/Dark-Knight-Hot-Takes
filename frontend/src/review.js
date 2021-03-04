@@ -17,6 +17,8 @@ class Review {
     static findById(id) {
         return this.all.find(r => r.id === id);
       }
+
+    
     
     //static method, similar to class method in ruby
     //because we push every instance into Review.all, we can search it!
