@@ -20,18 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function getReviews() {
   fetch(endpoint)
     .then(response => response.json())
-    .then(reviews => reviews.data.sort(function(a, b){
-      //console.log(a)
-      if(a.attributes.movie_id < b.attributes.movie_id) {return -1}
-      if(a.attributes.movie_id > b.attributes.movie_id) {return 1} 
-      return 0}))
-      // .then(reviews => console.log(reviews))
-    .then(reviews => reviews.forEach(review => {
-      //debugger
-      const newReview = new Review(review, review.attributes)
-      document.querySelector('#r-container').innerHTML += newReview.renderReview()
-      //debugger
-    }))
+    .then(reviews => sortTitle(reviews))
     .catch(error => console.log(error.message));
 }
 
@@ -43,6 +32,23 @@ function getReviews() {
 //using forEach iteration to create js counterpart of every review from DB (put'em through our constructor!)
 //to update the dom, we target where we want it to show up (querySelector), run the renderReview() located in Review class
 //catch is there for promises that are rejected, will let us know if communication with endpoint has issues
+
+function sortTitle(reviews){
+  const ordered = reviews.data.sort(function(a, b){
+    //console.log(a)
+    if(a.attributes.movie_id < b.attributes.movie_id) {return -1}
+    if(a.attributes.movie_id > b.attributes.movie_id) {return 1} 
+    return 0})
+    renderGet(ordered)}
+
+
+function renderGet(reviews){
+  reviews.forEach(review => {
+      //debugger
+      const newReview = new Review(review, review.attributes)
+      document.querySelector('#r-container').innerHTML += newReview.renderReview()
+    })
+  }
 
 function formHandler(e){
     e.preventDefault()
@@ -72,13 +78,7 @@ function postFetch(reviewer, header, body, movie_id){
     body: JSON.stringify(bodyData)
   })
     .then(resp => resp.json())
-    .then(review => {
-      if(review.errors){alert(review.errors)}
-      //debugger
-      const reviewData = review.data
-      let newerReview = new Review(reviewData, reviewData.attributes)
-      document.querySelector('#r-container').innerHTML += newerReview.renderReview()
-    })
+    .then(review => renderPost(review))
     .catch(error => console.log(error.message))
 }
 
@@ -91,6 +91,14 @@ function postFetch(reviewer, header, body, movie_id){
 //create a corresponding js object for front end usage after post (new Review)
 //this way, every time form is submitted, db and frontend line up w/ counterparts
 //we then use new js object to display new review on DOM so user can see it (send it to renderReview)
+
+function renderPost(review){
+  if(review.errors){alert(review.errors)}
+  //debugger
+  const reviewData = review.data
+  let newerReview = new Review(reviewData, reviewData.attributes)
+  document.querySelector('#r-container').innerHTML += newerReview.renderReview()
+}
 
 function deleteHandler(e) {
   e.preventDefault()
